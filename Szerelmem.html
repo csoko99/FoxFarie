@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Szerelmem</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <script src="nav.js"></script>
+</head>
+<body>
+    <nav>
+      <ul class="sidebar">
+          <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+          <li><h1 class="logo cim">Utikalauz a szerelmünkhöz</h1></li>
+          <li><a href="#timeline-sec"><span><b>Idővonal</b></span></a></li>
+          <li><a href="#counter-sec"><span><b>Számláló</b></span></a></li>
+          <li><a href="#lists-sec"><span><b>Listák</b></span></a></li>
+          <li><a href="#gallery-sec"><span><b>Galéria</b></span></a></li>
+      </ul>
+      <ul>
+          <li class="hideOnMobile cim"><h1>Utikalauz a szerelmünkhöz</h1></li>
+          <li class="hideOnMobile"><a href="#timeline-sec"><span><b>Idővonal</b></span></a></li>
+          <li class="hideOnMobile"><a href="#counter-sec"><span><b>Számláló</b></span></a></li>
+          <li class="hideOnMobile"><a href="#lists-sec"><span><b>Listák</b></span></a></li>
+          <li class="hideOnMobile"><a href="#gallery-sec"><span><b>Galéria</b></span></a></li>
+          <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+      </ul>
+  </nav>
+
+  <div class="header">
+    <h2 style="text-align: center;">Idővonal</h2>
+  </div>
+
+
+    <div class="parallax" id="timeline-sec">
+      <div class="timeline ">
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>Első randi</h3>
+            <p>Hatalmas parázások közepedte elmentünk Debrecenbe az Árkád kávézóba az első randinkra. Egész hamar feloldódtunk, majd a kávé után elmentünk a nagyerdei Békás tóhoz, ahol festettünk majd feltettem a nagy kérdést</p>
+            <img src="dates/dates_3.JPG" alt="" style="width: 50%;">
+            <small>2024. június 17.</small>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>Első találkozás a családoddal</h3>
+            <p>Majd be szartam, amikor mentem, nem aludtam, nem ettem, de viszonylag egész hamar felszabadultam. Emlékszem Bence leitatott mint a szar és szét hánytam a fenti buditokat de szerintem egész jól sikerült.</p>
+            <img src="modell/model_19.jpg" alt="" style="width: 50%;">
+            <small>2024. június 24.</small>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>Első találkozás a családommal</h3>
+            <p>Na itt te voltál beszarva. Vissza jöttetek a nyaralásból majd rá egy pár napra vagy hétre már jöttél is. Nagyon tartalmas egy hét volt. A családom már a legelején megkedvelt és bele láttál a kocsmai életbe is egy kicsit. A legszarabb helyeken aludtunk, de nem számított mert így is jól éreztük magunkat. Valamikor a hét vége fele ki is bicikliztünk a határhoz fotózkodni.</p>
+            <img src="modell/model_17.jpg" alt="" style="width: 50%;">
+            <img src="modell/model_21.jpg" alt="" style="width: 50%;">
+            <small>2023. március 15.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="counter-sec">
+      <div class="counter-container">
+        <h2 id="left-side">A "Na most mi legyen?" óta eltelt idő:</h2>
+        <p id="time-elapsed">Betöltés...</p>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <br>
+      <h2>Hallgassunk egy kis zenét</h2>
+      <br>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4ymh7PsiFUmjCc5dUMHYpf?utm_source=generator" width="85%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  
+<div id="lists-sec">
+  <br>
+    <h2 style="text-align: center;">Listák</h2>
+    <br>
+    <div id="listak">
+      <div class="list-container">
+        <h1>Movies/series we need to watch</h1>
+        <ul id="movie-list">
+        </ul>
+        <button id="add-movie-button">Új film/sorozat hozzáadása</button>
+      </div>
+
+      <div class="list-container">
+        <h1>Activities/programs we need to do</h1>
+        <ul id="activity-list">
+        </ul>
+        <button id="add-activity-button">Új film/sorozat hozzáadása</button>
+      </div>
+    </div>
+</div>
+
+<h1>Galéria</h1>
+<div id="gallery-sec">
+ 
+  <ul class="nav-links">
+    <li><button class="gallery-button" data-gallery="video">Videók</button></li>
+    <li class="center"><button class="gallery-button" data-gallery="bereal">BeReal</button></li>
+    <li class="center"><button class="gallery-button" data-gallery="arts">Művészetek</button></li>
+    <li class="upward"><button class="gallery-button" data-gallery="dates">Randevúk</button></li>
+    <li class="upward"><button class="gallery-button" data-gallery="bolondos">Bolondos pillanatok</button></li>
+    <li class="forward"><button class="gallery-button" data-gallery="modell">Modellek</button></li>
+  </ul>
+</div>
+
+
+<div class="gallery-grid" id="video-gallery-grid" style="display: none;"></div>
+
+<div class="modal" id="video-modal">
+    <span class="close" id="close-video">&times;</span>
+    <img class="modal-content" id="modal-img-video">
+    <div class="caption" id="caption-video"></div>
+</div>
+
+<div class="gallery-grid" id="bereal-gallery-grid" style="display: none;"></div>
+
+<div class="modal" id="bereal-modal">
+    <span class="close" id="close-bereal">&times;</span>
+    <img class="modal-content" id="modal-img-bereal">
+    <div class="caption" id="caption-bereal"></div>
+  </div>
+
+<div class="gallery-grid" id="arts-gallery-grid" style="display: none;"></div>
+
+<div class="modal" id="arts-modal">
+    <span class="close" id="close-arts">&times;</span>
+    <img class="modal-content" id="modal-img-arts">
+    <div class="caption" id="caption-arts"></div>
+  </div>
+
+<div class="gallery-grid" id="dates-gallery-grid" style="display: none;"></div>
+
+<div class="modal" id="dates-modal">
+    <span class="close" id="close-dates">&times;</span>
+    <img class="modal-content" id="modal-img-dates">
+    <div class="caption" id="caption-dates"></div>
+  </div>
+
+<div class="gallery-grid" id="bolondos-gallery-grid" style="display: none;"></div>
+
+<div class="modal" id="bolondos-modal">
+    <span class="close" id="close-bolondos">&times;</span>
+    <img class="modal-content" id="modal-img-bolondos">
+    <div class="caption" id="caption-bolondos"></div>
+  </div>
+
+<div class="gallery-grid" id="modell-gallery-grid" style="display: none;"></div>
+
+<div class="modal" id="modell-modal">
+    <span class="close" id="close-modell">&times;</span>
+    <img class="modal-content" id="modal-img-modell">
+    <div class="caption" id="caption-modell"></div>
+  </div>
+
+  <br>
+    <h1>Cofee Map</h1>
+  <br>
+  <div id="map-sec">
+    <div id="map"></div>
+    <div id="zoom_buttons_container"></div>
+  </div>
+<br>
+
+<div id="weather">
+  <h3>Időjárás</h3>
+  <p>Hely: <span id="city">-</span></p>
+  <p>Hőmérséklet: <span id="temp">-</span>°C</p>
+  <p>Állapot: <span id="weather-desc">-</span></p>
+</div>
+
+<!-- Naptár -->
+<div id="calendar"></div>
+
+<!-- Esemény Létrehozása -->
+<div id="event-creator">
+  <h3>Esemény Létrehozása</h3>
+  <form id="event-form">
+    <label for="event-date">Dátum:</label>
+    <input type="date" id="event-date" required />
+    <label for="event-location">Hely:</label>
+    <input type="text" id="event-location" placeholder="Hely megadása..." required />
+    <button type="submit">Hozzáadás</button>
+  </form>
+</div>
+
+<!-- Esemény Lista -->
+<div id="event-list">
+  <h3>Események</h3>
+  <ul></ul>
+</div>
+
+
+
+
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([47.531913324697484, 21.62487416853897], 15); 
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap hozzájárulók'
+  }).addTo(map);
+
+  const emojiIcon = emoji => L.divIcon({
+    className: 'emoji-marker', // Egyedi stílus
+    html: `<div style="width:10px, height:10px">${emoji}</div>`,
+    iconSize: [50, 50], // Ikon mérete (szélesség, magasság)
+    iconAnchor: [20, 20], // Horgonyzási pont (középen)
+    popupAnchor: [0, -20], // Felugró ablak elhelyezése
+  });
+
+  const places = [
+    { name: 'Vintage World cafe & flowers', coords: [47.52701393012051, 21.624669655044674], emoji: '🌸' },
+    { name: 'Árkád kávézó', coords: [47.531913324697484, 21.62487416853897], emoji: '🥂' },
+    { name: 'Éva cukrászda', coords: [48.33201179794161, 21.119366724983674], emoji: '🍰' },
+    { name: 'Macskávézó Debrecen', coords: [47.53115382934149, 21.63597826795213], emoji: '🐱' },
+    { name: 'Cafe Frey Debrecen Főtér', coords: [47.529893263975815, 21.6255375531978], emoji: '☕' },
+    { name: 'Starbucks Debrecen Arany Bika', coords: [47.530763662561604, 21.62402222621308], emoji: '🦌' },
+    ];
+
+  // Markerek hozzáadása a térképhez
+  places.forEach(place => {
+    L.marker(place.coords, { icon: emojiIcon(place.emoji) })
+      .addTo(map)
+      .bindPopup(`<b>${place.name}</b>`);
+  });
+
+  const buttonContainer = document.getElementById('zoom_buttons_container');
+    places.forEach(place => {
+      const button = document.createElement('button');
+      button.textContent = place.name;
+      button.className = 'zoom-button';
+      button.onclick = () => {
+        map.setView(place.coords, 20); // Zoom adott helyhez
+      };
+      buttonContainer.appendChild(button);
+    });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

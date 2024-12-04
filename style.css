@@ -1,0 +1,417 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes scale-a-lil {
+  from {
+    scale: .5;
+    }
+  }
+
+@media (prefers-reduced-motion: no-preference) {
+  .timeline-item, #counter-sec, iframe, #lists-sec{
+    animation: scale-a-lil linear both;
+    animation-timeline: view();
+    animation-range: 25vh 50vh;
+    }
+  }
+
+.parallax {
+  background-image: url('https://cdn.wallpapersafari.com/69/43/JTIe07Z.jpg'); /* Cseréld ki a saját képedre */
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  background-color: #5E4352;
+  padding: 20px 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  width: 70%;
+  font-size: 22px;
+}
+.nav-links li{
+  list-style: none;
+  margin: 0 5%;
+  border: none;
+}
+
+.nav-links li a:hover:before{
+  width: 100%;
+}
+.nav-links li.center a:before{
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav-links li.upward a:before{
+  width: 100%;
+  bottom: -5px;
+  opacity: 0;
+}
+.nav-links li.upward a:hover:before{
+  bottom: 0px;
+  opacity: 1;
+}
+.nav-links li.forward a:before{
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+.nav-links li.forward a:hover:before{
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+#gallery-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F56476;
+    color: #44303b;
+  }
+  
+  #counter-sec {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .counter-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+  }
+  
+  #left-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    padding: 20px;
+    background-color: #E43F6F;
+  }
+
+  #time-elapsed {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    width: 50%;
+    background-color: #BE3E82;
+  }
+  
+  #listak {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .list-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    text-align: center;
+    margin: 10px;
+    color: #5E4352;
+    background-color: #DFBBB1;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #5E4352;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+ .button-container_1 {
+    padding: 15px;
+    border: 1px solid #5E4352;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  li > span {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 95%;
+  }
+  
+  button {
+    background-color: #5E4352;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    flex: 1;
+    text-align: center;
+  }
+  
+  button:hover {
+    background-color: #44313b;
+  }
+  
+  .delete-button {
+    background-color: #d4626e;
+  }
+  
+  .delete-button:hover {
+    background-color: #a71d2a;
+  }
+  
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* dinamikus oszlopok */
+    gap: 20px; /* térköz */
+    padding: 50px;
+  }
+  
+  .gallery-grid img {
+    width: 100%; /* A szülő elemhez igazodik */
+    height: 400px; /* Megőrzi az arányokat */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .gallery-grid img:hover {
+    transform: scale(1.05); /* Kicsit kinagyítja az egeret */
+  }
+  
+/* Modal stílus */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #bbb;
+}
+
+.caption {
+  color: #ccc;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.gallery-button {
+  background-color: #5E4352;
+  color: white;
+  border: none;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.gallery-button:hover {
+  background-color: #493440;
+  color: white;
+  transform: scale(1.75);
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px 0;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #f39c12;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+  z-index: 2;
+}
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -13px;
+  background-color: #f39c12;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.timeline-item:nth-child(odd) {
+  right: 9%;
+}
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+.timeline-item:nth-child(even)::after {
+  left: -13px;
+}
+.timeline-item-content {
+  padding: 20px;
+  background: #fff;
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.timeline-item-content h3 {
+  margin-top: 0;
+}
+.timeline-item-content p {
+  margin: 10px 0 0;
+}
+.timeline-item-content small {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+}
+
+#map-sec {
+  display: flex;
+  justify-content: center;
+}
+
+#map-sec {
+  display: flex;
+  gap: 10px;
+}
+
+#zoom_buttons_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 10%; /* Gombok szélessége */
+}
+
+.zoom-button {
+  padding: 10px;
+  background-color: #5E4352;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.zoom-button:hover {
+  background-color: #493440;
+}
+
+#map {
+  height: 600px; /* Térkép magassága */
+  width: 85%;  /* Térkép szélessége */
+}
+
+ /* Emoji marker stílus */
+ .emoji-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; /* Marker szélessége */
+  height: 20px; /* Marker magassága */
+  background-color: rgba(255, 255, 255, 0.9); /* Fehér, enyhén áttetsző háttér */
+  border: 2px solid #000; /* Fekete szegély */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Árnyék */
+  border-radius: 50%; /* Kör alakú marker */
+  font-size: 30px; /* Emoji mérete */
+  text-align: center;
+}
+
+#calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+#calendar td {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#calendar td:hover {
+  background-color: #f0f0f0;
+}
+
+#weather, #event-creator, #event-list {
+  margin: 20px 0;
+}
