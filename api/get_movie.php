@@ -1,10 +1,14 @@
 <?php
 // Adatbázis kapcsolódási adatok
-define('DB_HOST', 'pti.unithe.hu');
+/*define('DB_HOST', 'pti.unithe.hu');*/
+define('DB_HOST', 'localhost');
 define('DB_USER', 'lali_user');
 define('DB_PASSWORD', 'CvLEP4O2tn0z3Dub5pzygM5q9p2O5TX0');
 define('DB_NAME', 'lali');
-define('DB_PORT', 13306);
+define('DB_PORT', '3306');
+/*define('DB_PORT', 13306);*/
+
+
 
 // Csatlakozás az adatbázishoz
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);

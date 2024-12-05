@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const apiBaseUrl = "https://pti.unithe.hu:8443/FoxFarie/api/";
+
     const galleries = {
         video: {
             grid: document.getElementById("video-gallery-grid"),
             images: [
-                "videok/video_1.mov",
+                "https://pti.unithe.hu:8443/FoxFarie/videok/video_1.mov",
             ],
             modalId: "video-modal",
             modalImgId: "modal-img-video",
@@ -13,17 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
         bereal: {
             grid: document.getElementById("bereal-gallery-grid"),
             images: [
-                "bereal/bereal_1.jpg",
-                "bereal/bereal_2.jpg",
-                "bereal/bereal_3.jpg",
-                "bereal/bereal_4.jpg",
-                "bereal/bereal_5.jpg",
-                "bereal/bereal_6.jpg",
-                "bereal/bereal_7.jpg",
-                "bereal/bereal_8.jpg",
-                "bereal/bereal_9.jpg",
-                "bereal/bereal_10.jpg",
-                "bereal/bereal_11.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_1.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_2.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_3.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_4.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_5.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_6.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_7.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_8.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_9.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_10.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_11.jpg",
             ],
             modalId: "bereal-modal",
             modalImgId: "modal-img-bereal",
@@ -33,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
         arts: {
             grid: document.getElementById("arts-gallery-grid"),
             images: [
-                "kepek/arts1.jpg",
-                "kepek/arts2.jpg",
-                "kepek/arts3.jpg",
+               /* "https://pti.unithe.hu:8443/FoxFarie/kepek/arts1.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/kepek/arts2.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/kepek/arts3.jpg",*/
             ],
             modalId: "arts-modal",
             modalImgId: "modal-img-arts",
@@ -45,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
         dates: {
             grid: document.getElementById("dates-gallery-grid"),
             images: [
-                "dates/dates_1.jpg",
-                "dates/dates_2.jpg",
-                "dates/dates_3.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_1.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_2.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_3.jpg",
             ],
             modalId: "dates-modal",
             modalImgId: "modal-img-dates",
@@ -57,41 +59,41 @@ document.addEventListener("DOMContentLoaded", () => {
         bolondos: {
             grid: document.getElementById("bolondos-gallery-grid"),
             images: [
-                "bolondos/bolondos_1.jpg",
-                "bolondos/bolondos_2.jpg",
-                "bolondos/bolondos_3.jpg",
-                "bolondos/bolondos_4.jpg",
-                "bolondos/bolondos_5.jpg",
-                "bolondos/bolondos_6.jpg",
-                "bolondos/bolondos_7.jpg",
-                "bolondos/bolondos_8.jpg",
-                "bolondos/bolondos_9.jpg",
-                "bolondos/bolondos_10.jpg",
-                "bolondos/bolondos_11.jpg",
-                "bolondos/bolondos_12.jpg",
-                "bolondos/bolondos_13.jpg",
-                "bolondos/bolondos_14.jpg",
-                "bolondos/bolondos_15.jpg",
-                "bolondos/bolondos_16.jpg",
-                "bolondos/bolondos_17.jpg",
-                "bolondos/bolondos_18.jpg",
-                "bolondos/bolondos_19.jpg",
-                "bolondos/bolondos_20.jpg",
-                "bolondos/bolondos_21.jpg",
-                "bolondos/bolondos_22.jpg",
-                "bolondos/bolondos_23.jpg",
-                "bolondos/bolondos_24.jpg",
-                "bolondos/bolondos_25.jpg",
-                "bolondos/bolondos_26.jpg",
-                "bolondos/bolondos_27.jpg",
-                "bolondos/bolondos_28.jpg",
-                "bolondos/bolondos_29.jpg",
-                "bolondos/bolondos_30.jpg",
-                "bolondos/bolondos_31.jpg",
-                "bolondos/bolondos_32.jpg",
-                "bolondos/bolondos_33.jpg",
-                "bolondos/bolondos_34.jpg",
-                "bolondos/bolondos_35.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_1.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_2.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_3.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_4.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_5.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_6.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_7.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_8.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_9.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_10.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_11.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_12.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_13.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_14.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_15.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_16.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_17.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_18.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_19.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_20.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_21.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_22.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_23.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_24.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_25.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_26.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_27.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_28.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_29.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_30.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_31.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_32.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_33.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_34.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bolondos/bolondos_35.jpg",
             ],
             modalId: "bolondos-modal",
             modalImgId: "modal-img-bolondos",
@@ -101,36 +103,36 @@ document.addEventListener("DOMContentLoaded", () => {
         modell: {
             grid: document.getElementById("modell-gallery-grid"),
             images: [
-                "modell/model_1.jpg",
-                "modell/model_2.jpg",
-                "modell/model_3.jpg",
-                "modell/model_4.jpg",
-                "modell/model_5.jpg",
-                "modell/model_6.jpg",
-                "modell/model_7.jpg",
-                "modell/model_8.jpg",
-                "modell/model_9.jpg",
-                "modell/model_10.jpg",
-                "modell/model_11.jpg",
-                "modell/model_12.jpg",
-                "modell/model_13.jpg",
-                "modell/model_14.jpg",
-                "modell/model_15.jpg",
-                "modell/model_16.jpg",
-                "modell/model_17.jpg",
-                "modell/model_18.jpg",
-                "modell/model_19.jpg",
-                "modell/model_20.jpg",
-                "modell/model_21.jpg",
-                "modell/model_22.jpg",
-                "modell/model_23.jpg",
-                "modell/model_24.jpg",
-                "modell/model_25.jpg",
-                "modell/model_26.jpg",
-                "modell/model_27.jpg",
-                "modell/model_28.jpg",
-                "modell/model_29.jpg",
-                "modell/model_30.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_1.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_2.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_3.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_4.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_5.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_6.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_7.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_8.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_9.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_10.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_11.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_12.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_13.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_14.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_15.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_16.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_17.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_18.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_19.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_20.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_21.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_22.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_23.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_24.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_25.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_26.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_27.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_28.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_29.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/modell/model_30.jpg",
             ],
             modalId: "modell-modal",
             modalImgId: "modal-img-modell",
@@ -230,219 +232,339 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
-    });    
-});
+    });  
+    
+    
 
-// Kezdődátum: 2024. június 17.
-const startDate = new Date('2024-06-17T00:00:00');
 
-// Számláló frissítése
+
+
+
+
+
+
+
+
+
+// Idő számláló
+const startDate = new Date("2024-06-17T00:00:00");
+
 function updateCounter() {
-  const now = new Date(); // Jelenlegi dátum
-
-  // Évek, hónapok és napok kiszámítása
+  const now = new Date();
   let years = now.getFullYear() - startDate.getFullYear();
   let months = now.getMonth() - startDate.getMonth();
   let days = now.getDate() - startDate.getDate();
 
-  // Ha a napok negatívak, visszalépünk egy hónapot
   if (days < 0) {
     months -= 1;
-    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-    days += prevMonth.getDate();
+    days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
   }
 
-  // Ha a hónapok negatívak, visszalépünk egy évet
   if (months < 0) {
     years -= 1;
     months += 12;
   }
 
-  // Órák, percek, másodpercek kiszámítása
-  const hours = now.getHours();
-  const minutes = now.getMinutes();
-  const seconds = now.getSeconds();
-
-  // Idő formázása
-  let formattedTime = '<ul>';
-  if (years > 0) formattedTime += `<li>${years} év</li>`;
-  if (months > 0) formattedTime += `<li>${months} hónap</li>`;
-  if (days > 0) formattedTime += `<li>${days} nap</li>`;
-  if (hours > 0) formattedTime += `<li>${hours} óra</li>`;
-  if (minutes > 0) formattedTime += `<li>${minutes} perc</li>`;
-  if (seconds > 0) formattedTime += `<li>${seconds} másodperc</li>`;
-  formattedTime += '</ul>';
-
-  // Idő kiírása a DOM-ba
-  document.getElementById('time-elapsed').innerHTML = formattedTime;
+  const formattedTime = `
+    <ul>
+      ${years > 0 ? `<li>${years} év</li>` : ""}
+      ${months > 0 ? `<li>${months} hónap</li>` : ""}
+      ${days > 0 ? `<li>${days} nap</li>` : ""}
+    </ul>`;
+  document.getElementById("time-elapsed").innerHTML = formattedTime;
 }
 
-// Idő frissítése másodpercenként
 setInterval(updateCounter, 1000);
-
-// Alkalmazás indítása
 updateCounter();
 
-
-// Helyi tárolóból betöltött adatbázisok
-let movieDatabase = JSON.parse(localStorage.getItem('movieDatabase')) || [];
-let activityDatabase = JSON.parse(localStorage.getItem('activityDatabase')) || [];
-
-// Lista betöltése az adatbázisból
+// Film/sorozat kezelése
 function loadMovieItems() {
-    const movieList = document.getElementById('movie-list');
-    movieList.innerHTML = ''; // Törli az aktuális elemeket
-    movieDatabase.forEach(item => {
-      const li = document.createElement('li');
-      li.classList.add('button-container_1');
-      li.classList.add('button-container');
-      li.innerHTML = `
-        <span>${item.text} (S${item.season}E${item.episode})</span>
-        <button class="decrease-season-button">- Évad</button>
-        <button class="increase-season-button">+ Évad</button>
-        <button class="decrease-episode-button">- Rész</button>
-        <button class="increase-episode-button">+ Rész</button>
-        <button class="delete-button">Törlés</button>
-      `;
-  
-      // Évad növelése
-      li.querySelector('.increase-season-button').addEventListener('click', () => {
-        item.season++;
-        saveMovieDatabase();
-        loadMovieItems();
-      });
-  
-      // Évad csökkentése
-      li.querySelector('.decrease-season-button').addEventListener('click', () => {
-        if (item.season > 1) item.season--;
-        saveMovieDatabase();
-        loadMovieItems();
-      });
-  
-      // Epizód növelése
-      li.querySelector('.increase-episode-button').addEventListener('click', () => {
-        item.episode++;
-        saveMovieDatabase();
-        loadMovieItems();
-      });
-  
-      // Epizód csökkentése
-      li.querySelector('.decrease-episode-button').addEventListener('click', () => {
-        if (item.episode > 1) item.episode--;
-        saveMovieDatabase();
-        loadMovieItems();
-      });
-  
-      // Törlés gomb eseménykezelője
-      li.querySelector('.delete-button').addEventListener('click', () => {
-        deleteMovieItem(item.id);
-      });
-  
-      movieList.appendChild(li);
-    });
-  }
+  $.ajax({
+    url: `${apiBaseUrl}get_movie.php`,
+    method: "GET",
+    dataType: "json",
+    success: (movies) => {
+      const movieList = $("#movie-list");
+      movieList.empty();
+      movies.forEach((movie) => {
+        const li = $(`
+          <li class="button-container button-container_1">
+            <span>${movie.title} (S${movie.season}E${movie.episode})</span>
+            <button class="increase-season">+ Évad</button>
+            <button class="decrease-season">- Évad</button>
+            <button class="increase-episode">+ Rész</button>
+            <button class="decrease-episode">- Rész</button>
+            <button class="delete">Törlés</button>
+          </li>
+        `);
 
-function loadActivityItems() {
-  const activityList = document.getElementById('activity-list');
-  activityList.innerHTML = ''; // Törli az aktuális elemeket
-  activityDatabase.forEach(item => {
-    const li = document.createElement('li');
-    li.classList.add('button-container_1');
-    li.textContent = item.text;
+        li.find(".increase-season").on("click", () =>
+          updateMovie(movie.id, Number(movie.season) + 1, Number(movie.episode))
+        );
+        li.find(".decrease-season").on("click", () =>
+          updateMovie(movie.id, Math.max(Number(movie.season) - 1, 1), Number(movie.episode))
+        );
+        li.find(".increase-episode").on("click", () =>
+          updateMovie(movie.id, Number(movie.season), Number(movie.episode) + 1)
+        );
+        li.find(".decrease-episode").on("click", () =>
+          updateMovie(movie.id, Number(movie.season), Math.max(Number(movie.episode) - 1, 1))
+        );
+        li.find(".delete").on("click", () => deleteMovie(movie.id));
 
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Törlés';
-    deleteButton.onclick = () => deleteActivityItem(item.id);
-
-    li.appendChild(deleteButton);
-    activityList.appendChild(li);
+        movieList.append(li);
+      });
+    },
   });
 }
 
-// Új film/sorozat hozzáadása
-function addMovieItem() {
-    const title = prompt("Add meg a film/sorozat címét:");
-    if (!title) return;
-  
-    const season = parseInt(prompt("Add meg az évad számát (pl. 1):"), 10) || 1;
-    const episode = parseInt(prompt("Add meg az epizód számát (pl. 1):"), 10) || 1;
-  
-    const newItem = {
-      id: movieDatabase.length ? movieDatabase[movieDatabase.length - 1].id + 1 : 1,
-      text: title,
-      season: season,
-      episode: episode,
-    };
-  
-    movieDatabase.push(newItem);
-    saveMovieDatabase();
-    loadMovieItems();
-  }
-  
+function updateMovie(id, season, episode) {
+  const data = { id };
+  if (season !== undefined) data.season = season;
+  if (episode !== undefined) data.episode = episode;
 
-function addActivityItem() {
-  const newItemText = prompt("Add meg az új programot:");
-  if (newItemText) {
-    const newItem = {
-      id: activityDatabase.length ? activityDatabase[activityDatabase.length - 1].id + 1 : 1,
-      text: newItemText,
-    };
-    activityDatabase.push(newItem);
-    saveActivityDatabase();
-    loadActivityItems();
-  }
+  $.ajax({
+    url: `${apiBaseUrl}update_movie.php`,
+    method: "PUT",
+    data: JSON.stringify(data),
+    contentType: "application/json",
+    success: loadMovieItems,
+    error: (jqXHR, textStatus, errorThrown) => {
+      console.error("Hiba a film frissítése közben:", textStatus, errorThrown);
+      alert("Nem sikerült frissíteni a filmet. Ellenőrizd az API-t.");
+    },
+  });
 }
 
-// Film/sorozat szerkesztése
-function editMovieItem(id) {
-    const index = movieDatabase.findIndex(item => item.id === id);
-    if (index === -1) return;
-  
-    const item = movieDatabase[index];
-    const newTitle = prompt("Szerkeszd a címet:", item.text) || item.text;
-    const newSeason = parseInt(prompt("Szerkeszd az évad számát:", item.season), 10) || item.season;
-    const newEpisode = parseInt(prompt("Szerkeszd az epizód számát:", item.episode), 10) || item.episode;
-  
-    movieDatabase[index] = { ...item, text: newTitle, season: newSeason, episode: newEpisode };
-    saveMovieDatabase();
-    loadMovieItems();
-  }
 
-// Film/sorozat vagy aktivitás törlése
-function deleteMovieItem(id) {
-    const index = movieDatabase.findIndex(item => item.id === id);
-    if (index !== -1) {
-      movieDatabase.splice(index, 1);
-      saveMovieDatabase();
-      loadMovieItems();
-    }
-  }
+function deleteMovie(movieId) {
+  if (!confirm("Biztosan törölni szeretnéd ezt az elemet?")) return;
 
-function deleteActivityItem(id) {
-  const index = activityDatabase.findIndex(item => item.id === id);
-  if (index !== -1) {
-    activityDatabase.splice(index, 1);
-    saveActivityDatabase();
-    loadActivityItems();
-  }
+  $.ajax({
+    url: `${apiBaseUrl}delete_movie.php`,
+    method: "DELETE",
+    data: JSON.stringify({ id: movieId }),
+    contentType: "application/json",
+    success: function (response) {
+      console.log("Sikeres válasz:", response);
+      if (response.success) {
+        alert("Film sikeresen törölve!");
+        loadMovieItems(); // Frissíti a listát
+      } else {
+        alert("Hiba: " + response.error);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("AJAX hiba:", textStatus, errorThrown);
+      alert("Nem sikerült törölni a filmet. Ellenőrizd az API-t.");
+    },
+  });
 }
 
-// Adatbázisok mentése a helyi tárolóba
-function saveMovieDatabase() {
-    localStorage.setItem('movieDatabase', JSON.stringify(movieDatabase));
-  }
 
-function saveActivityDatabase() {
-  localStorage.setItem('activityDatabase', JSON.stringify(activityDatabase));
+function addMovie() {
+  const title = prompt("Cím:");
+  if (!title) return;
+
+  const season = parseInt(prompt("Évad:"), 10) || 1;
+  const episode = parseInt(prompt("Epizód:"), 10) || 1;
+  const is_active = 1; // Alapértelmezett aktív állapot
+
+  $.ajax({
+    url: `${apiBaseUrl}create_movie.php`,
+    method: "POST",
+    data: JSON.stringify({ title, season, episode, is_active }),
+    contentType: "application/json",
+    success: function (response) {
+      console.log("Sikeres válasz:", response);
+      if (response.success) {
+        loadMovieItems();
+      } else {
+        alert("Hiba: " + response.error);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("AJAX hiba:", textStatus, errorThrown);
+      alert("Nem sikerült hozzáadni a filmet. Ellenőrizd az API-t.");
+    },
+  });
 }
 
-// Gomb eseménykezelők hozzáadása
-document.getElementById('add-movie-button').addEventListener('click', addMovieItem);
-document.getElementById('add-activity-button').addEventListener('click', addActivityItem);
 
-// Alkalmazás inicializálása
+$("#add-movie-button").on("click", addMovie);
+
+
 loadMovieItems();
-loadActivityItems();
+
+
+function loadActivities() {
+  // AJAX hívás a get_activities.php végponthoz
+  $.ajax({
+    url: `${apiBaseUrl}get_activities.php`, // Az API végpont URL-je
+    method: "GET",
+    dataType: "json", // JSON formátumban várjuk az adatokat
+    success: (response) => {
+      const activityList = $("#activity-list"); // A listaelem kiválasztása
+      activityList.empty(); // Lista ürítése
+
+      if (response.success && response.data.length > 0) {
+        // Bejárjuk az aktivitásokat és hozzáadjuk őket a listához
+        response.data.forEach((activity) => {
+          const listItem = $(`<li class="button-container_1"><span>${activity.activity}</span> <button class="delete_1">Törlés</button></li>`);
+          listItem.find(".delete_1").on("click", () => deleteActivity(activity.id));
+          activityList.append(listItem); // Elem hozzáadása a listához
+        });
+      } else {
+        // Ha nincs adat, megjelenítjük az üres üzenetet
+        activityList.append("<li>Nincs elérhető aktivitás.</li>");
+      }
+    },
+    error: () => {
+      // Hiba esetén értesítjük a felhasználót
+      alert("Hiba történt az aktivitások betöltése közben!");
+    },
+  });
+}
+
+function addActivitie() {
+  const activity = prompt("Add meg az aktivitás nevét:");
+  if (!activity) return;
+
+  $.ajax({
+    url: `${apiBaseUrl}create_activity.php`,
+    method: "POST",
+    data: JSON.stringify({ activity }),
+    contentType: "application/json",
+    success: (response) => {
+      if (response.success) {
+        alert("Aktivitás sikeresen hozzáadva!");
+        loadActivities(); 
+      } else {
+        alert("Hiba történt: " + response.error);
+      }
+    },
+    error: () => {
+      alert("Hiba történt az aktivitás létrehozása közben.");
+    },
+  });
+}
+$("#add-activity-button").on("click", addActivitie);
+
+function deleteActivity(id) {
+  if (!confirm("Biztosan törölni szeretnéd ezt az aktivitást?")) return;
+
+  $.ajax({
+    url: `${apiBaseUrl}delete_activity.php`,
+    method: "POST",
+    data: JSON.stringify({ id }),
+    contentType: "application/json",
+    success: (response) => {
+      if (response.success) {
+        alert("Aktivitás sikeresen törölve!");
+        loadActivities(); // Újratöltjük az aktivitásokat
+      } else {
+        alert("Hiba történt: " + response.error);
+      }
+    },
+    error: () => {
+      alert("Hiba történt az aktivitás törlése közben.");
+    },
+  });
+}
+loadActivities();
+
+// Betöltés és megjelenítés az #activity-list helyett #dates-list-ben
+function loadDates() {
+  $.ajax({
+    url: `${apiBaseUrl}get_dates.php`, // A get_dates.php fájlt hívjuk meg
+    method: "GET",
+    dataType: "json",
+    success: (dates) => {
+      const datesList = $("#dates-list"); // Az ID #dates-list legyen
+      datesList.empty(); // Az elemek törlése a lista frissítése előtt
+
+      dates.forEach((date) => {
+        const li = $(`
+          <li class="button-container button-container_1">
+            <span>${date.dates_date} - ${date.dates_title} (${date.dates_city})</span>
+            <button class="delete">Törlés</button>
+          </li>
+        `);
+
+        li.find(".delete").on("click", () => deleteDate(date.id));
+        datesList.append(li); // Az elemet hozzáadjuk a listához
+      });
+    },
+    error: () => {
+      alert("Hiba történt a dátumok betöltése közben.");
+    },
+  });
+}
+
+// Új dátum létrehozása
+function createDate() {
+  const dates_date = prompt("Adj meg egy dátumot (YYYY-MM-DD formátumban):");
+  const dates_title = prompt("Add meg az esemény címét:");
+  const dates_city = prompt("Add meg az esemény városát:");
+  const is_active = confirm("Az esemény aktív?") ? 1 : 0;
+
+  if (!dates_date || !dates_title || !dates_city) {
+    alert("Minden mező kitöltése kötelező!");
+    return;
+  }
+
+  $.ajax({
+    url: `${apiBaseUrl}create_date.php`, // A create_date.php-t hívjuk meg
+    method: "POST",
+    data: JSON.stringify({ dates_date, dates_title, dates_city, is_active }),
+    contentType: "application/json",
+    success: (response) => {
+      if (response.success) {
+        alert("Esemény sikeresen hozzáadva!");
+        loadDates(); // Frissítjük a listát
+      } else {
+        alert("Hiba: " + response.error);
+      }
+    },
+    error: () => {
+      alert("Hiba történt az esemény létrehozása közben.");
+    },
+  });
+}
+
+// Dátum törlése
+function deleteDate(id) {
+  if (!confirm("Biztosan törölni szeretnéd ezt a dátumot?")) return;
+
+  $.ajax({
+    url: `${apiBaseUrl}delete_dates.php`, // A delete_date.php-t hívjuk meg
+    method: "POST",
+    data: JSON.stringify({ id }),
+    contentType: "application/json",
+    success: (response) => {
+      if (response.success) {
+        alert("Dátum sikeresen törölve!");
+        loadDates(); // Frissítjük a listát
+      } else {
+        alert("Hiba: " + response.error);
+      }
+    },
+    error: () => {
+      alert("Hiba történt a dátum törlése közben.");
+    },
+  });
+}
+
+// Script inicializálása
+$(document).ready(() => {
+  loadDates(); // Dátumok betöltése oldal betöltésekor
+
+  $("#create-date-btn").on("click", () => {
+    createDate(); // Új dátum hozzáadása a gombnyomáskor
+  });
+});
+
+
 
 const apiKey = '1fa8ecd4a8970de411d9b8ee4c78c5ca';
 const weatherWidget = {
@@ -533,3 +655,4 @@ function updateWeatherWidget(city, temp, desc) {
 
 // Esemény form kezelése
 document.getElementById('event-form').addEventListener('submit', addEvent);
+});
