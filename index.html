@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
   <script src="nav.js"></script>
 </head>
 <body>
@@ -178,9 +179,6 @@
   <p>Állapot: <span id="weather-desc">-</span></p>
 </div>
 
-<!-- Naptár -->
-<div id="calendar"></div>
-
 <!-- Esemény Létrehozása -->
 <div id="event-creator">
   <h3>Esemény Létrehozása</h3>
@@ -205,7 +203,9 @@
   <ul id="dates-list"></ul>
 </div>
 
-
+<div id="calendar-sec">
+  <div id="calendar"></div>
+</div>
 
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 <script>

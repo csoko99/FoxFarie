@@ -396,22 +396,16 @@ body {
   text-align: center;
 }
 
-#calendar table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 10px 0;
-}
-
-#calendar td {
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-}
-
-#calendar td:hover {
-  background-color: #f0f0f0;
-}
-
 #weather, #event-creator, #event-list {
   margin: 20px 0;
+}
+
+#calendar-sec {
+  display: flex;
+  justify-content: center;
+}
+
+#calendar {
+  width: 80%;
+  background-color: #DFBBB1;
 }

@@ -476,7 +476,7 @@ loadActivities();
 // Betöltés és megjelenítés az #activity-list helyett #dates-list-ben
 function loadDates() {
   $.ajax({
-    url: `${apiBaseUrl}get_dates.php`, // A get_dates.php fájlt hívjuk meg
+    url: `${apiBaseUrl}get_dates_list.php`, // A get_dates.php fájlt hívjuk meg
     method: "GET",
     dataType: "json",
     success: (dates) => {
@@ -502,6 +502,7 @@ function loadDates() {
 }
 
 // Új dátum létrehozása
+// Új dátum létrehozása
 function createDate() {
   const dates_date = prompt("Adj meg egy dátumot (YYYY-MM-DD formátumban):");
   const dates_title = prompt("Add meg az esemény címét:");
@@ -521,7 +522,9 @@ function createDate() {
     success: (response) => {
       if (response.success) {
         alert("Esemény sikeresen hozzáadva!");
-        loadDates(); // Frissítjük a listát
+        // Frissítjük a naptár eseményeit
+        loadDates();
+        calendar.refetchEvents(); 
       } else {
         alert("Hiba: " + response.error);
       }
@@ -544,7 +547,9 @@ function deleteDate(id) {
     success: (response) => {
       if (response.success) {
         alert("Dátum sikeresen törölve!");
-        loadDates(); // Frissítjük a listát
+        // Frissítjük a naptár eseményeit
+        loadDates();
+        calendar.refetchEvents();
       } else {
         alert("Hiba: " + response.error);
       }
@@ -564,6 +569,34 @@ $(document).ready(() => {
   });
 });
 
+var calendarEl = document.getElementById('calendar');
+var calendar = new FullCalendar.Calendar(calendarEl, {
+  initialView: 'dayGridMonth',
+  selectable: true,
+  
+  // Események betöltése az API-ból
+  events: function(info, successCallback, failureCallback) {
+    $.ajax({
+      url: `${apiBaseUrl}get_dates_calendar.php`,  // Az API endpoint
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        successCallback(data); // Események sikeres betöltése
+      },
+      error: function(xhr, status, error) {
+        failureCallback(error); // Hiba esetén
+      }
+    });
+  },
+  
+  // Egyéb opciók, pl. kattintásra esemény hozzáadása
+  dateClick: function(info) {
+    alert('Kattintottál: ' + info.dateStr);
+  }
+});
+
+calendar.render();
+
 
 
 const apiKey = '1fa8ecd4a8970de411d9b8ee4c78c5ca';
@@ -573,50 +606,9 @@ const weatherWidget = {
   desc: document.getElementById('weather-desc'),
 };
 
-// Naptár generálása
-const today = new Date();
-const calendar = document.getElementById('calendar');
-
-function generateCalendar() {
-  let calendarHTML = '<table border="1"><tr>';
-  for (let day = 1; day <= 31; day++) {
-    calendarHTML += `<td data-day="${day}">${day}</td>`;
-    if (day % 7 === 0) calendarHTML += '</tr><tr>';
-  }
-  calendarHTML += '</tr></table>';
-  calendar.innerHTML = `<h3>Naptár (${today.getMonth() + 1}. hónap)</h3>` + calendarHTML;
-}
-
-generateCalendar();
-
-// Események kezelése
-const events = [];
-
-function addEvent(event) {
-  event.preventDefault();
-  const date = document.getElementById('event-date').value;
-  const location = document.getElementById('event-location').value;
-
-  if (date && location) {
-    events.push({ date, location });
-    updateEventList();
-    fetchWeather(location, new Date(date));
-  }
-}
-
-function updateEventList() {
-  const eventList = document.querySelector('#event-list ul');
-  eventList.innerHTML = '';
-  events.forEach((event, index) => {
-    const li = document.createElement('li');
-    li.textContent = `Dátum: ${event.date}, Hely: ${event.location}`;
-    li.onclick = () => fetchWeather(event.location, new Date(event.date));
-    eventList.appendChild(li);
-  });
-}
 
 // Időjárás lekérdezés
-function fetchWeather(location, date) {
+/*function fetchWeather(location, date) {
   const isFuture = date > new Date();
   const endpoint = isFuture
     ? `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=${apiKey}`
@@ -654,5 +646,5 @@ function updateWeatherWidget(city, temp, desc) {
 }
 
 // Esemény form kezelése
-document.getElementById('event-form').addEventListener('submit', addEvent);
+document.getElementById('event-form').addEventListener('submit', addEvent);*/
 });
