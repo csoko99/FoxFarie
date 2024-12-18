@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_9.jpg",
                 "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_10.jpg",
                 "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_11.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/bereal/bereal_12.jpg",
             ],
             modalId: "bereal-modal",
             modalImgId: "modal-img-bereal",
@@ -35,9 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
         arts: {
             grid: document.getElementById("arts-gallery-grid"),
             images: [
-               /* "https://pti.unithe.hu:8443/FoxFarie/kepek/arts1.jpg",
-                "https://pti.unithe.hu:8443/FoxFarie/kepek/arts2.jpg",
-                "https://pti.unithe.hu:8443/FoxFarie/kepek/arts3.jpg",*/
+                "https://pti.unithe.hu:8443/FoxFarie/arts/arts_1.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/arts/arts_2.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/arts/arts_3.jpg",
             ],
             modalId: "arts-modal",
             modalImgId: "modal-img-arts",
@@ -50,6 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 "https://pti.unithe.hu:8443/FoxFarie/dates/dates_1.jpg",
                 "https://pti.unithe.hu:8443/FoxFarie/dates/dates_2.jpg",
                 "https://pti.unithe.hu:8443/FoxFarie/dates/dates_3.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_4.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_5.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_6.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_7.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_8.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_9.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_10.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_11.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_12.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_13.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_14.jpg",
+                "https://pti.unithe.hu:8443/FoxFarie/dates/dates_15.jpg",
             ],
             modalId: "dates-modal",
             modalImgId: "modal-img-dates",
@@ -485,7 +498,7 @@ function loadDates() {
 
       dates.forEach((date) => {
         const li = $(`
-          <li class="button-container button-container_1">
+          <li class="button-container_1">
             <span>${date.dates_date} - ${date.dates_title} (${date.dates_city})</span>
             <button class="delete">Törlés</button>
           </li>
@@ -501,39 +514,6 @@ function loadDates() {
   });
 }
 
-// Új dátum létrehozása
-// Új dátum létrehozása
-function createDate() {
-  const dates_date = prompt("Adj meg egy dátumot (YYYY-MM-DD formátumban):");
-  const dates_title = prompt("Add meg az esemény címét:");
-  const dates_city = prompt("Add meg az esemény városát:");
-  const is_active = confirm("Az esemény aktív?") ? 1 : 0;
-
-  if (!dates_date || !dates_title || !dates_city) {
-    alert("Minden mező kitöltése kötelező!");
-    return;
-  }
-
-  $.ajax({
-    url: `${apiBaseUrl}create_date.php`, // A create_date.php-t hívjuk meg
-    method: "POST",
-    data: JSON.stringify({ dates_date, dates_title, dates_city, is_active }),
-    contentType: "application/json",
-    success: (response) => {
-      if (response.success) {
-        alert("Esemény sikeresen hozzáadva!");
-        // Frissítjük a naptár eseményeit
-        loadDates();
-        calendar.refetchEvents(); 
-      } else {
-        alert("Hiba: " + response.error);
-      }
-    },
-    error: () => {
-      alert("Hiba történt az esemény létrehozása közben.");
-    },
-  });
-}
 
 // Dátum törlése
 function deleteDate(id) {
@@ -569,82 +549,203 @@ $(document).ready(() => {
   });
 });
 
-var calendarEl = document.getElementById('calendar');
-var calendar = new FullCalendar.Calendar(calendarEl, {
-  initialView: 'dayGridMonth',
-  selectable: true,
-  
-  // Események betöltése az API-ból
-  events: function(info, successCallback, failureCallback) {
-    $.ajax({
-      url: `${apiBaseUrl}get_dates_calendar.php`,  // Az API endpoint
-      method: 'GET',
-      dataType: 'json',
-      success: function(data) {
-        successCallback(data); // Események sikeres betöltése
-      },
-      error: function(xhr, status, error) {
-        failureCallback(error); // Hiba esetén
-      }
-    });
-  },
-  
-  // Egyéb opciók, pl. kattintásra esemény hozzáadása
-  dateClick: function(info) {
-    alert('Kattintottál: ' + info.dateStr);
+// Az esemény létrehozásához szükséges függvény naptáron kívül!
+function createDate(dates_date) {
+  const dates_title = prompt("Add meg az esemény címét:");
+  const dates_city = prompt("Add meg az esemény városát:");
+  const is_active =1;
+
+  // Ellenőrizzük, hogy a felhasználó kitöltötte-e az összes mezőt
+  if (!dates_date || !dates_title || !dates_city) {
+    alert("Minden mező kitöltése kötelező!");
+    return;
   }
-});
 
-calendar.render();
+  // Küldés az API-nak
+  $.ajax({
+    url: `${apiBaseUrl}create_date.php`,
+    method: "POST",
+    data: JSON.stringify({ dates_date, dates_title, dates_city, is_active }),
+    contentType: "application/json",
+    success: (response) => {
+      if (response.success) {
+        // Események újratöltése
+        loadDates();
+        calendar.refetchEvents();
+      } else {
+        alert("Hiba: " + response.error);
+      }
+    },
+    error: () => {
+      alert("Hiba történt az esemény létrehozása közben.");
+    },
+  });
+}
+
+// FullCalendar inicializálás
+var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    selectable: true,
+
+    // Események betöltése az API-ból
+    events: function (info, successCallback, failureCallback) {
+      $.ajax({
+        url: `${apiBaseUrl}get_dates_calendar.php`, // Az API endpoint
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          successCallback(data); // Események sikeres betöltése
+        },
+        error: function (xhr, status, error) {
+          failureCallback(error); // Hiba esetén
+        },
+      });
+    },
+
+    // Esemény megjelenítés testreszabása
+    eventContent: function (arg) {
+      const title = arg.event.title; // Esemény címe
+      const city = arg.event.extendedProps.location; // Város neve
+
+      let customHtml = `
+      <div class="main-ev-con">
+        <div class="event-container">
+          <div class="fc-event-title">${title}</div>
+          <div class="fc-event-city">${city}</div>
+        </div>
+      </div>
+      `;
+      return { html: customHtml };
+    },
+
+    // Eseményre kattintás
+    eventClick: function (info) {
+      const title = info.event.title; // Esemény címe
+      const city = info.event.extendedProps.location; // Város neve
+      const date = info.event.start;
+      fetchWeather(city, date);
+    },
+
+    // Dátumra kattintás (új esemény hozzáadása)
+    dateClick: function (info) {
+      createDate(info.dateStr); // A kiválasztott dátumot automatikusan átadjuk
+    },
+  });
+
+  // Toggle gomb eseménykezelője
+  document.getElementById('toggleViewButton').addEventListener('click', function() {
+    // Ellenőrizzük az aktuális nézetet
+    if (calendar.view.type === 'dayGridMonth') {
+      // Ha hónapnézetben van, váltsunk listanézetre
+      calendar.changeView('listMonth');
+      this.textContent = 'Naptár nézet'; // Gomb szövege
+    } else {
+      // Ha listanézetben van, váltsunk hónapnézetre
+      calendar.changeView('dayGridMonth');
+      this.textContent = 'Lista nézet'; // Gomb szövege
+    }
+  });
+
+  // Naptár megjelenítése
+  calendar.render();
 
 
 
-const apiKey = '1fa8ecd4a8970de411d9b8ee4c78c5ca';
+const apiKey = '1fa8ecd4a8970de411d9b8ee4c78c5ca';  // Az OpenWeatherMap API kulcsod
+
+// Időjárás widget elemek (HTML-ben meghatározott elemek)
 const weatherWidget = {
   city: document.getElementById('city'),
   temp: document.getElementById('temp'),
   desc: document.getElementById('weather-desc'),
 };
 
+// Időjárás adat lekérdezése
+function fetchWeather(city, date) {
+  // OpenWeatherMap API endpoint
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&cnt=40&appid=${apiKey}&lang=hu`;
 
-// Időjárás lekérdezés
-/*function fetchWeather(location, date) {
-  const isFuture = date > new Date();
-  const endpoint = isFuture
-    ? `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=${apiKey}`
-    : `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`;
+  // AJAX kérés az időjárás API-ra
+  $.ajax({
+    url: url,
+    method: 'GET',
+    success: function(response) {
+      // Az API válaszából megtaláljuk a legközelebbi időpontot (UTC)
+      const weatherData = response.list.find(item => {
+        const forecastDate = new Date(item.dt * 1000); // Eredeti időbélyeg átalakítása dátummá
+        return forecastDate.toDateString() === new Date(date).toDateString(); // Hasonlítjuk a dátumokat
+      });
 
-  fetch(endpoint)
-    .then(response => response.json())
-    .then(data => {
-      if (isFuture) {
-        const futureWeather = data.list.find(entry => {
-          const weatherDate = new Date(entry.dt * 1000);
-          return (
-            weatherDate.getDate() === date.getDate() &&
-            weatherDate.getMonth() === date.getMonth() &&
-            weatherDate.getFullYear() === date.getFullYear()
-          );
-        });
+      if (weatherData) {
+        // Ha megtaláltuk az időpontot, megjelenítjük az adatokat
+        weatherWidget.city.textContent = city;
+        weatherWidget.temp.textContent = ` ${weatherData.main.temp}°C`;
+        weatherWidget.desc.textContent = ` ${weatherData.weather[0].description}`;
+        
+        // Ikon URL generálása
+        const weatherIcon = weatherData.weather[0].icon; // Ikon kód
+        const iconUrl = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
 
-        if (futureWeather) {
-          updateWeatherWidget(location, futureWeather.main.temp, futureWeather.weather[0].description);
-        } else {
-          alert('Nem található előrejelzés erre a dátumra.');
-        }
+        // Ikon megjelenítése az img elemben
+        const weatherIconImg = document.getElementById('weather-icon');
+        weatherIconImg.src = iconUrl; // Beállítjuk az ikon képét
+        weatherIconImg.alt = weatherData.weather[0].description; // Alt attribútum az időjárás leírásával
       } else {
-        updateWeatherWidget(location, data.main.temp, data.weather[0].description);
+        // Ha nem találunk adatot az adott dátumra
+        alert("Nincs elérhető időjárási adat ezen a napon.");
       }
-    })
-    .catch(error => console.error('Hiba az időjárás adatainak lekérésekor:', error));
+    },
+    error: function() {
+      alert("Hiba történt az időjárás adatainak lekérésekor.");
+    }
+  });
 }
 
-function updateWeatherWidget(city, temp, desc) {
-  weatherWidget.city.textContent = city;
-  weatherWidget.temp.textContent = Math.round(temp);
-  weatherWidget.desc.textContent = desc;
+
+const messages = [
+  "Ma egy csodálatos nap vár rád!",
+  "Mosolyogj, mert a világ szebb lesz tőle!",
+  "Bármi is történik, te erős vagy!",
+  "Higgy magadban, mert megérdemled a sikert!",
+  "A szeretet, amit adsz, mindig visszatalál hozzád.",
+  "Ne feledd, milyen különleges vagy!",
+  "Minden lépés közelebb visz az álmaidhoz.",
+  "A boldogság benned van, csak engedd szabadon!",
+  "Te vagy a kedvenc emberem",
+  "Ma is ragyogsz kedvesem",
+  "Sose ne, hidd hogy nem szeretlek. Te vagy a mindenem",
+  "Legyen olyan csodás a napod, mint nekem (te vagy a napom)",
+  "Ha még nem hallottad volna ezerszer, SZERETLEK!!",
+  "Te jó isten, milyen gyönyörű lány nyitotta meg ezt az oldalt... :O",
+  "A pitagoras tételt biztsan tudom, mint azt, hogy milyen gyönyörú vagy.",
+  "Ha lenne még egy életem azt is veled szeretném leélni.",
+  "Én tudom, hogy mennyi erőfeszítést teszel nap mint nap. Na és te tudod?",
+  "Ma olyan hercegnő fleshekben vagy kedvesem, hogy előkerestem a koronád:👑",
+  "Ha nem csillog már a szemem az azért van mert már kiégett a fényedtől",
+  "Te vagy az én motorom ami hajt nap mint nap",
+  "Nem tudod elképzelni, hogy valójában mennyire szeretlek",
+  "A tenyeremen hordoználak legszívesebben egész életemben",
+];
+
+
+const today = new Date().toISOString().split('T')[0];
+
+
+const savedMessages = JSON.parse(localStorage.getItem('dailyMessages')) || {};
+
+if (!savedMessages[today]) {
+  const availableMessages = messages.filter(msg => !Object.values(savedMessages).includes(msg));
+
+  const dailyMessage = availableMessages.length > 0
+      ? availableMessages[Math.floor(Math.random() * availableMessages.length)]
+      : messages[Math.floor(Math.random() * messages.length)];
+
+  savedMessages[today] = dailyMessage;
+  localStorage.setItem('dailyMessages', JSON.stringify(savedMessages));
 }
 
-// Esemény form kezelése
-document.getElementById('event-form').addEventListener('submit', addEvent);*/
+document.getElementById('daily-message').textContent = savedMessages[today];
+
+
 });
