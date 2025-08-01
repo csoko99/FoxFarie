@@ -1,5 +1,4 @@
 <?php
-// Adatbázis kapcsolódás
 define('DB_HOST', 'localhost');
 define('DB_USER', 'lali_user');
 define('DB_PASSWORD', 'CvLEP4O2tn0z3Dub5pzygM5q9p2O5TX0');
@@ -17,7 +16,6 @@ try {
     exit;
 }
 
-// Lekérjük az eseményeket
 $sql = "SELECT id, dates_date, dates_title, dates_city FROM szer_dates WHERE is_active = 1";
 $stmt = $pdo->query($sql);
 
@@ -26,11 +24,9 @@ while ($row = $stmt->fetch()) {
     $events[] = [
         'id' => $row['id'],
         'title' => $row['dates_title'],
-        'start' => $row['dates_date'],  // Az esemény kezdete
-        'location' => $row['dates_city'], // Az esemény helyszíne
+        'start' => $row['dates_date'],  
+        'location' => $row['dates_city'], 
     ];
 }
-
-// JSON válasz
 echo json_encode($events);
 ?>

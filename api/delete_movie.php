@@ -1,5 +1,4 @@
 <?php
-// Adatbázis kapcsolódási adatok
 define('DB_HOST', 'localhost');
 define('DB_USER', 'lali_user');
 define('DB_PASSWORD', 'CvLEP4O2tn0z3Dub5pzygM5q9p2O5TX0');
@@ -19,16 +18,13 @@ try {
 
 header('Content-Type: application/json');
 
-// Csak DELETE metódust fogad el
 if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
     echo json_encode(["success" => false, "error" => "Invalid request method. Use DELETE."]);
     exit;
 }
 
-// JSON bemenet feldolgozása
 $data = json_decode(file_get_contents('php://input'), true);
 
-// Ellenőrzi, hogy az 'id' mező jelen van-e
 if (!isset($data['id']) || !is_numeric($data['id'])) {
     echo json_encode(["success" => false, "error" => "Missing or invalid 'id' field."]);
     exit;
@@ -37,7 +33,6 @@ if (!isset($data['id']) || !is_numeric($data['id'])) {
 $id = intval($data['id']);
 
 try {
-    // SQL törlés
     $sql = "DELETE FROM szer_movies WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':id' => $id]);

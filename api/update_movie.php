@@ -1,5 +1,4 @@
 <?php
-// Adatbázis kapcsolódási adatok
 define('DB_HOST', 'localhost');
 define('DB_USER', 'lali_user');
 define('DB_PASSWORD', 'CvLEP4O2tn0z3Dub5pzygM5q9p2O5TX0');
@@ -18,25 +17,18 @@ try {
 }
 
 header('Content-Type: application/json');
-
-// Csak PUT metódust fogad el
 if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
     echo json_encode(["success" => false, "error" => "Invalid request method. Use PUT."]);
     exit;
 }
 
-// JSON bemenet feldolgozása
 $data = json_decode(file_get_contents('php://input'), true);
-
-// Ellenőrzi, hogy az 'id' mező jelen van-e
 if (!isset($data['id']) || !is_numeric($data['id'])) {
     echo json_encode(["success" => false, "error" => "Missing or invalid 'id' field."]);
     exit;
 }
 
 $id = intval($data['id']);
-
-// Csak azokat a mezőket frissíti, amelyek érkeznek
 $updateFields = [];
 $params = [':id' => $id];
 
@@ -70,7 +62,6 @@ $updateFields[] = "updated_at = :updated_at";
 $params[':updated_at'] = $updated_at;
 
 try {
-    // SQL dinamikus frissítés
     $sql = "UPDATE szer_movies SET " . implode(", ", $updateFields) . " WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);

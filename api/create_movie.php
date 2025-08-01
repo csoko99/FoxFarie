@@ -1,5 +1,4 @@
 <?php
-// Adatbázis kapcsolódási adatok
 define('DB_HOST', 'localhost');
 define('DB_USER', 'lali_user');
 define('DB_PASSWORD', 'CvLEP4O2tn0z3Dub5pzygM5q9p2O5TX0');
