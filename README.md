@@ -1,10 +1,12 @@
 FoxFarie
-FoxFarie is a heartfelt Christmas gift I created for my girlfriend. While the code may not be perfect due to time constraints, I hope the effort and sentiment shine through.
 
 🎄 About
-This project was developed as a personal gift, showcasing my affection and creativity. Despite the rushed development process, I aimed to deliver something visually appealing and meaningful.
+A unique, emotionally-driven web experience created as a Christmas gift for my girlfriend. The project challenged me to quickly prototype and creatively express an idea, all within a tight deadline.
 
-🌐 Live Demo You can view the site live here: https://csoko99.github.io/FoxFarie
+👨🏻‍💻 Skills: 
+- Creative design
+- Project planning
+- Rapid execution
  
 ✨ Features
 - 🌞 Daily Kind Message - A different sweet, uplifting message is displayed each day. These messages are meant to brighten your partner's morning and bring a smile daily.
