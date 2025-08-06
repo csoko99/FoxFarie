@@ -1,6 +1,7 @@
 FoxFarie
 
 🎄 About
+
 A unique, emotionally-driven web experience created as a Christmas gift for my girlfriend. The project challenged me to quickly prototype and creatively express an idea, all within a tight deadline.
 
 👨🏻‍💻 Skills: 
